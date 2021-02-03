@@ -85,4 +85,64 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving user Ads");
         }
     }
+
+
+
+
+
+
+
+
+    @Override
+    public Ad getAdById(long id) {
+        Ad ad = null;
+        try {
+            //"AND is_Deleted=0" how to check if it is deleted on 101
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ADS WHERE id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+                ad = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad");
+        }
+        return ad;
+    }
+
+    @Override
+    public void deleteAd(Ad ad) {
+
+    }
+
+    public Long delete(Long adId) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement ps = connection.prepareStatement(deleteQuery);
+            ps.setLong(1, adId);
+            ps.executeUpdate();
+            return Long.valueOf(2);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad", e);
+        }
+    }
+
+
+
+
+
+
+
+
+
+    @Override
+    public void updateAd(Ad ad) {
+
+    }
 }

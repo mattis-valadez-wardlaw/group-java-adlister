@@ -16,10 +16,9 @@
     <div>
         <h2>Here are all of your posts</h2>
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
-            </div>
+            <h1>${ad.title}</h1>
+            <h2>${ad.description}</h2>
+            <a class="btn btn-primary deletebtn" id="deletebtn" href="/ads/delete?id=${ad.id}">Delete</a>
         </c:forEach>
     </div>
 </body>

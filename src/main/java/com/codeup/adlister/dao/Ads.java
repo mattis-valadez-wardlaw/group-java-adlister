@@ -13,4 +13,12 @@ public interface Ads {
 
     //show the user's Ads on their profile page
     List<Ad> userAds(User user);
+
+    //must be defined in MySQLAdsDao due to interface implementation
+    Ad getAdById(long id);
+    void deleteAd(Ad ad);
+    void updateAd(Ad ad);
+
+    Long delete(Long adId);
+
 }
