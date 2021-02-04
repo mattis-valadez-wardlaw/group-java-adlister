@@ -28,10 +28,8 @@ public class User {
         this.username = username;
         this.email = email;
         setPassword(password);
-//        this.password = password;
     }
 
-//    User user = new User(id, username, email, password);
 
     public long getId() {
         return id;
