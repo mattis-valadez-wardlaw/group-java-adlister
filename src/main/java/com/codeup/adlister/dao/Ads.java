@@ -13,7 +13,7 @@ public interface Ads {
 
     //show the user's Ads on their profile page
     List<Ad> userAds(User user);
-
+  
     //must be defined in MySQLAdsDao due to interface implementation
     Ad getAdById(long id);
     void deleteAd(Ad ad);
@@ -23,5 +23,8 @@ public interface Ads {
     Long updateAd(Ad ad);
 
     Long delete(Long adId);
-
+    
+    Long linkAdToCategory(long adId, long categoryId);
+  
+    List<Ad> getAdsWithCategory(Long categoryId);
 }

@@ -1,20 +1,20 @@
 package com.codeup.adlister.models;
 
-public class Categories {
+public class Category {
 
     private long id;
     private String name;
 
-    public Categories() {
+    public Category() {
     }
 
     //Using two constructors as best practice to mitigate need
-    public Categories(long id, String name) {
+    public Category(long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Categories(String name) {
+    public Category(String name) {
         this.name = name;
     }
 
