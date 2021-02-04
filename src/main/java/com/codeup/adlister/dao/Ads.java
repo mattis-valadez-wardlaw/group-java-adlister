@@ -17,7 +17,10 @@ public interface Ads {
     //must be defined in MySQLAdsDao due to interface implementation
     Ad getAdById(long id);
     void deleteAd(Ad ad);
-    void updateAd(Ad ad);
+
+    Ad singleAd(Long adId);
+
+    Long updateAd(Ad ad);
 
     Long delete(Long adId);
 

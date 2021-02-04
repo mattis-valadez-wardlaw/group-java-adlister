@@ -19,6 +19,7 @@
             <h1>${ad.title}</h1>
             <h2>${ad.description}</h2>
             <a class="btn btn-primary deletebtn" id="deletebtn" href="/ads/delete?id=${ad.id}">Delete</a>
+            <a class="btn btn-primary editbtn" id="editbtn" href="/ads/edit?id=${ad.id}">Edit</a>
         </c:forEach>
     </div>
 </body>

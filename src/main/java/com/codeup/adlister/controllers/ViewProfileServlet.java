@@ -18,6 +18,7 @@ public class ViewProfileServlet extends HttpServlet {
             return;
         }
 
+
         //appends the list of ads for the individual user to their profile
         request.setAttribute("ads", DaoFactory.getAdsDao().userAds((User)request.getSession().getAttribute("user")));
 
