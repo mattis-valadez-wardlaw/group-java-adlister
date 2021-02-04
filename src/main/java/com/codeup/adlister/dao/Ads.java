@@ -13,4 +13,6 @@ public interface Ads {
 
     //show the user's Ads on their profile page
     List<Ad> userAds(User user);
+    Long linkAdToCategory(long adId, long categoryId);
+    List<Ad> getAdsWithCategory(Long categoryId);
 }
