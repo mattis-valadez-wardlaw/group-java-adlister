@@ -4,9 +4,6 @@ import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +15,9 @@ public class MySQLAdsDao implements Ads {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -58,10 +55,13 @@ public class MySQLAdsDao implements Ads {
 
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
-            rs.getLong("id"),
-            rs.getLong("user_id"),
-            rs.getString("title"),
-            rs.getString("description")
+
+                rs.getLong("id"),
+
+
+                rs.getLong("user_id"),
+                rs.getString("title"),
+                rs.getString("description")
         );
     }
 
@@ -87,6 +87,86 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public Ad getAdById(long id) {
+        Ad ad = null;
+        try {
+            //"AND is_Deleted=0" how to check if it is deleted on 101
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM ADS WHERE id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                ad = new Ad(
+                        rs.getLong("id"),
+                        rs.getLong("user_id"),
+                        rs.getString("title"),
+                        rs.getString("description")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting Ad id", e);
+        }
+        return ad;
+    }
+
+    @Override
+    public void deleteAd(Ad ad) {
+
+    }
+
+    public Long delete(Long adId) {
+        try {
+            String deleteQuery = "DELETE FROM ads WHERE id = ?";
+            PreparedStatement ps = connection.prepareStatement(deleteQuery);
+            ps.setLong(1, adId);
+            ps.executeUpdate();
+            return Long.valueOf(2);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error deleting ad", e);
+        }
+    }
+
+    @Override
+    public Ad singleAd(Long adId) {
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = connection.prepareStatement("SELECT ads.*, users.username FROM ads JOIN users ON users.id = ads.user_id WHERE ads.id = ?");
+            stmt.setLong(1, adId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+
+            return extractAd(rs);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error finding ad.", e);
+        }
+
+    }
+
+
+    @Override
+    public Long updateAd(Ad ad) {
+        String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, ad.getTitle());
+            stmt.setString(2, ad.getDescription());
+            stmt.setLong(3, ad.getId());
+            stmt.executeUpdate();
+            ResultSet rs = stmt.getGeneratedKeys();
+            rs.next();
+            rs.getLong(1);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error editing ad", e);
+        }
+        return null;
+    }
+  
+  @Override
     public Long linkAdToCategory(long adId, long categoryId) {
         String query = "INSERT INTO ad_category (ad_id, category_id) VALUES (?, ?)";
         try {
@@ -124,3 +204,4 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 }
+
