@@ -18,18 +18,14 @@ public class CreateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-
         request.setAttribute("categories",DaoFactory.getCategoriesDao().all());
-
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         User user = (User) request.getSession().getAttribute("user");
-
         String[] categories = request.getParameterValues("category");
-
         Ad ad = new Ad(
                 user.getId(),
                 request.getParameter("title"),
@@ -37,12 +33,10 @@ public class CreateAdServlet extends HttpServlet {
         );
 
         Long adId = DaoFactory.getAdsDao().insert(ad);
-
         try {
             for(String categoryId : categories) {
                 DaoFactory.getAdsDao().linkAdToCategory(adId, Long.parseLong(categoryId));
             }
-
             response.sendRedirect("/ads");
         } catch (RuntimeException e) {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
