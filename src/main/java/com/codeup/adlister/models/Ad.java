@@ -22,6 +22,12 @@ public class Ad {
     ///////////////////
     //CreateAdServlet//
     ///////////////////
+    public Ad(long userId, String title, String description) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+    }
+
     public Ad(long userId, String title, String description, String username) {
         this.userId = userId;
         this.title = title;
