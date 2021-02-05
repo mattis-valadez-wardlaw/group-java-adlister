@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-control" type="text">${ad.description}</textarea>
+            <textarea id="description" name="description" class="form-control" type="text" required>${ad.description}</textarea>
         </div>
         <input type="hidden" name="id" value="${ad.id}">
         <input type="submit" class="btn btn-block btn-primary">
