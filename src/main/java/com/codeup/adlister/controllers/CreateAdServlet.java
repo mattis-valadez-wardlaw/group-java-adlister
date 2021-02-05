@@ -15,6 +15,10 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
+            //////////////////////
+            //intended redirect//
+            /////////////////////
+            request.getSession().setAttribute("last-page", "/ads/create");
             response.sendRedirect("/login");
             return;
         }
@@ -26,11 +30,8 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
-
-
         boolean inputHasErrors = title.isEmpty()
                 || description.isEmpty();
-
         if (inputHasErrors){
             response.sendRedirect("/ads/create");
             return;
