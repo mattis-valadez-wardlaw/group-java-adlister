@@ -24,6 +24,22 @@ public class ProfileEditServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         Long id = Long.valueOf(request.getParameter("id"));
+        //Split declaration to mitigate duplicate
+        User uniqueUser;
+        uniqueUser = DaoFactory.getUsersDao().findByUsername(username);
+        ////////////////////
+        // validate input //
+        ///////////////////
+        boolean inputHasErrors = username.isEmpty()
+                || uniqueUser != null
+                || email.isEmpty()
+                || password.isEmpty();
+
+        if (inputHasErrors) {
+            response.sendRedirect("/profile/edit");
+            return;
+        }
+
         try {
             User user = new User(id, username, email, password);
             DaoFactory.getUsersDao().update(user);

@@ -31,11 +31,20 @@ public class AdEditServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        //Getting values of the 3 properties of an AD (ID, Title, Description)
-        Long id = Long.parseLong(request.getParameter("id"));
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        Long id = Long.parseLong(request.getParameter("id"));
+        ////////////////////
+        // validate input //
+        ///////////////////
+        boolean inputHasErrors = title.isEmpty()
+                || description.isEmpty();
+
+        if (inputHasErrors){
+            response.sendRedirect("/ads/edit");
+            return;
+        }
+
 
         try {
             //constructor had wrong parameters

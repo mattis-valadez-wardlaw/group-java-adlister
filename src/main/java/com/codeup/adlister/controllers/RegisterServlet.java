@@ -22,8 +22,9 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
         String passwordConfirmation = request.getParameter("confirm_password");
         User uniqueUser = DaoFactory.getUsersDao().findByUsername(username);
-
-        // validate input
+        ////////////////////
+        // validate input //
+        ///////////////////
         boolean inputHasErrors = username.isEmpty()
             || uniqueUser != null
             || email.isEmpty()
