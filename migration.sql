@@ -34,11 +34,11 @@ CREATE TABLE categories (
 
 # Pre-set categories for users to choose from
 INSERT INTO categories(name) VALUES
-('Civil Rights'),
-('Immigration'),
-('Race & Ethnicity'),
-('Ability'),
-('Gender & Stereotypes');
+('Civil Rights '),
+('Immigration '),
+('Race & Ethnicity '),
+('Ability '),
+('Gender & Stereotypes ');
 
 
 # Tie categories table to ads (many to many relationship)

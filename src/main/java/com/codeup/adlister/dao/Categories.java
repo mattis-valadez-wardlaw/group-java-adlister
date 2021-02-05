@@ -11,6 +11,5 @@ public interface Categories {
     //get categories linked with ads by ad's id
     List<Category> getCategoriesLinkedWithAd(Long adId);
 
-    //insert a new category and return the new category's id
-    Long insert(Category category);
+    Category getCategoryById(long id);
 }

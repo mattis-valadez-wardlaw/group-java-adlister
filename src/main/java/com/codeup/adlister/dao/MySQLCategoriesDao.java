@@ -57,22 +57,6 @@ public class MySQLCategoriesDao implements Categories {
         return categories;
     }
 
-    @Override
-    public Long insert(Category category) {
-        String query =  "INSERT INTO categories(id, name) VALUES (?, ?)";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setLong(1, category.getId());
-            stmt.setString(2, category.getName());
-            stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error creating new category", e);
-        }
-    }
-
     private Category extractCategory(ResultSet rs) throws SQLException {
         return new Category(
                 rs.getLong("id"),
@@ -86,5 +70,24 @@ public class MySQLCategoriesDao implements Categories {
             categories.add(extractCategory(rs));
         }
         return categories;
+    }
+
+    public Category getCategoryById(long id) {
+        Category category = null;
+        try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM categories WHERE id=?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                category = new Category(
+                        rs.getLong("id"),
+                        rs.getString("name")
+                );
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting Category", e);
+        }
+        return category;
     }
 }
