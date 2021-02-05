@@ -15,6 +15,14 @@ public class ProfileEditServlet extends HttpServlet {
     public static String error = "";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        if(request.getSession().getAttribute("user")==null){
+            //////////////////////
+            //intended redirect//
+            /////////////////////
+            request.getSession().setAttribute("last-page", "/profile/edit");
+            response.sendRedirect("/login");
+            return;
+        }
         request.getSession().getAttribute("user");
         request.getRequestDispatcher("/WEB-INF/profile/edit.jsp").forward(request, response);
     }
