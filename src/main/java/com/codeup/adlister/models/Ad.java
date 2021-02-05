@@ -1,11 +1,17 @@
 package com.codeup.adlister.models;
 
+
 public class Ad {
     private long id;
     private long userId;
     private String title;
     private String description;
+    private String username;
 
+
+    ///////////////
+    //MySQLAdsDao//
+    ///////////////
     public Ad(long id, long userId, String title, String description) {
         this.id = id;
         this.userId = userId;
@@ -13,17 +19,30 @@ public class Ad {
         this.description = description;
     }
 
+    ///////////////////
+    //CreateAdServlet//
+    ///////////////////
     public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
     }
 
+    public Ad(long userId, String title, String description, String username) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.username = username;
+    }
+    /////////////////
+    //AdEditServlet//
+    /////////////////
     public Ad(Long id, String title, String description) {
         this.id = id;
         this.title = title;
         this.description = description;
     }
+
 
     public long getId() {
         return id;
@@ -56,4 +75,9 @@ public class Ad {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getUsername(){ return username; }
+
+    public void setUsername(String username) { this.username = username; }
+
 }

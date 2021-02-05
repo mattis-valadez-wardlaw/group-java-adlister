@@ -203,5 +203,36 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
+    @Override
+    public List<Ad> getAdsByTitle(String title) {
+        String query = "SELECT * FROM ads WHERE title LIKE ?";
+        String titleSearch = "%" + title + "%";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, titleSearch);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad by title", e);
+        }
+    }
+
+    @Override
+    public List<Ad> getAdsByDescription(String description) {
+        String query = "SELECT * FROM ads WHERE description LIKE ?";
+        String descriptionSearch = "%" + description + "%";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, descriptionSearch);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad by title", e);
+        }
+
+    }
+
+
 }
 

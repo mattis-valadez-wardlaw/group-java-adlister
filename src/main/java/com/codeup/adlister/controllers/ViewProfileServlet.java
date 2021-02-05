@@ -14,6 +14,10 @@ import java.io.IOException;
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
+            //////////////////////
+            //intended redirect//
+            /////////////////////
+            request.getSession().setAttribute("last-page", "/profile");
             response.sendRedirect("/login");
             return;
         }

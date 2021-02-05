@@ -27,4 +27,10 @@ public interface Ads {
     Long linkAdToCategory(long adId, long categoryId);
   
     List<Ad> getAdsWithCategory(Long categoryId);
+
+    List<Ad> getAdsByTitle(String title);
+
+    List<Ad> getAdsByDescription(String description);
+
+
 }

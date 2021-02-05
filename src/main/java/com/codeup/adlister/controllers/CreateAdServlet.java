@@ -15,21 +15,30 @@ import java.io.IOException;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
+            //////////////////////
+            //intended redirect//
+            /////////////////////
+            request.getSession().setAttribute("last-page", "/ads/create");
             response.sendRedirect("/login");
             return;
         }
-
         request.setAttribute("categories",DaoFactory.getCategoriesDao().all());
-
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String title = request.getParameter("title");
+        String description = request.getParameter("description");
+        boolean inputHasErrors = title.isEmpty()
+                || description.isEmpty();
+        if (inputHasErrors){
+            response.sendRedirect("/ads/create");
+            return;
+        }
+
         User user = (User) request.getSession().getAttribute("user");
-
         String[] categories = request.getParameterValues("category");
-
         Ad ad = new Ad(
                 user.getId(),
                 request.getParameter("title"),
@@ -37,12 +46,10 @@ public class CreateAdServlet extends HttpServlet {
         );
 
         Long adId = DaoFactory.getAdsDao().insert(ad);
-
         try {
             for(String categoryId : categories) {
                 DaoFactory.getAdsDao().linkAdToCategory(adId, Long.parseLong(categoryId));
             }
-
             response.sendRedirect("/ads");
         } catch (RuntimeException e) {
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
