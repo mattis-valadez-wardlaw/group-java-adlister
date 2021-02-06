@@ -11,6 +11,14 @@
             <c:choose>
                 <c:when test="${sessionScope.user == null}" >
                     <li class="nav-item">
+                        <a class="nav-link" href="/register">Register</a>
+                    </li>
+                </c:when>
+            </c:choose>
+
+            <c:choose>
+                <c:when test="${sessionScope.user == null}" >
+                    <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
                 </c:when>
