@@ -21,6 +21,7 @@ CREATE TABLE ads (
     user_id INT UNSIGNED NOT NULL,
     title VARCHAR(240) NOT NULL,
     description TEXT NOT NULL,
+    image_url VARCHAR(2000) NOT NULL,
     CONSTRAINT constraint_title UNIQUE(title),
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users(id)
@@ -46,6 +47,6 @@ INSERT INTO categories(name) VALUES
 CREATE TABLE ad_category (
     ad_id INTEGER UNSIGNED NOT NULL,
     category_id INTEGER UNSIGNED NOT NULL,
-    FOREIGN KEY (ad_id) REFERENCES ads(id),
+    FOREIGN KEY (ad_id) REFERENCES ads(id) ON DELETE CASCADE,
     FOREIGN KEY (category_id) REFERENCES categories(id)
 );

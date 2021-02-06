@@ -30,6 +30,7 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+
         boolean inputHasErrors = title.isEmpty()
                 || description.isEmpty();
         if (inputHasErrors){
@@ -39,10 +40,12 @@ public class CreateAdServlet extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
         String[] categories = request.getParameterValues("category");
+
         Ad ad = new Ad(
                 user.getId(),
                 request.getParameter("title"),
-                request.getParameter("description")
+                request.getParameter("description"),
+                request.getParameter("image")
         );
 
         Long adId = DaoFactory.getAdsDao().insert(ad);
