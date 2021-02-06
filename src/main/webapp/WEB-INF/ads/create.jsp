@@ -18,6 +18,10 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text" required></textarea>
             </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input id="image" name="image" class="form-control" type="text" placeholder="Enter Image Address">
+            </div>
             <div>
                 <h4>Categories:</h4>
                 <c:forEach var="category" items="${categories}">

@@ -73,6 +73,8 @@
         <div class="col-md-6">
             <h2><c:out value="${ad.title}"/></h2>
             <p><c:out value="${ad.description}"/></p>
+            <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title}>
+
             <p>Categories: <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
             <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
         </div>
