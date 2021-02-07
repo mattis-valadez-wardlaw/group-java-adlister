@@ -15,24 +15,42 @@
     <div class="container">
         <h1>Here are all the resources! Dive right in! 😊</h1>
 
-        <%--Search By Category--%>
-        <form action="/ads/categories" method="get">
-            <div class="multiselect">
-                <div class="selectBox" onclick="showCheckboxes()">
-                    <select>
-                        <option>Select Categories</option>
-                    </select>
-                    <div class="overSelect"></div>
+        <div class="align-forms">
+
+            <form action="/ads/title" method="get">
+                <div class="form-group">
+                    <input id="title" name="title" type="text" placeholder="Search By Description">
+                    <input type="submit">
                 </div>
-                <div id="checkboxes">
-                    <c:forEach var="category" items="${categories}">
-                        <label for="category-${category.getId()}">
-                            <input type="checkbox" id="category-${category.getId()}" name="categories" value="${category.getId()}"/>${category.getName()}</label>
-                    </c:forEach>
+            </form>
+
+            <form action="/ads/description" method="get">
+                <div class="form-group">
+                    <input id="description" name="description" type="text" placeholder="Search By Title">
+                    <input type="submit">
                 </div>
-            </div>
-            <input type = "submit" value="Search By Categories" />
-        </form>
+
+            </form>
+
+            <form action="/ads/categories" method="get">
+                <div class="multiselect">
+                    <div class="selectBox" onclick="showCheckboxes()">
+                        <select>
+                            <option>Search By Category</option>
+                        </select>
+                        <div class="overSelect"></div>
+                    </div>
+                    <div id="checkboxes">
+                        <c:forEach var="category" items="${categories}">
+                            <label for="category-${category.getId()}">
+                                <input type="checkbox" id="category-${category.getId()}" name="categories" value="${category.getId()}"/>${category.getName()}</label>
+                        </c:forEach>
+                        <input type="submit" value="Search By Categories" id="btn-position" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
 
         <%--Display Ads--%>
         <c:forEach var="ad" items="${ads}">
@@ -71,16 +89,6 @@
             </div>
             <input type="submit" class="btn btn-primary btn-block">
         </form>
-
-        <form action="/ads/description" method="get">
-            <div class="form-group">
-                <label for="description">Search by Description</label>
-                <input id="description" name="description" class="form-control" type="text">
-            </div>
-            <input type="submit" class="btn btn-primary btn-block">
-        </form>
-
-    </div>
 
 
     <%--JavaScript--%>
