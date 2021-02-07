@@ -23,5 +23,9 @@
             <input type="submit" class="btn btn-primary btn-block" value="Log In">
         </form>
     </div>
+
+
+    <%--JavaScript--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>

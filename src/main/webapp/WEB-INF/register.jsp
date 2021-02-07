@@ -43,19 +43,8 @@
     </div>
 
 
-
-
-    <script>
-        $(document).ready(function(){
-            $("#confirm_password").keyup(function() {
-                if ($("#password").val() !== $("#confirm_password").val()) {
-                    $(".error").text("Passwords do not match").fadeIn("slow");
-
-                } else {
-                    $(".error").fadeOut("slow");
-                }
-            })
-        });
-    </script>
+    <%--JavaScript--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+    <script src="../js/register.js"></script>
 </body>
 </html>
