@@ -19,11 +19,12 @@
     <h4 id="sub-heading">You  Home  For  Social  Justice  Resources</h4>
 </div>
 
-    <div class="bg-video-wrap">
+    <div class="overlay"></div>
 
+    <div class="bg-video-wrap">
         <video src="img/bookscan.mp4" width="100"  loop muted autoplay></video>
     </div>
 
-    <div class="overlay"></div>
+
 </body>
 </html>
