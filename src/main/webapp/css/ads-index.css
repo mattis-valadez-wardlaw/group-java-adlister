@@ -8,7 +8,7 @@
 
 .selectBox select {
     width: 100%;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .overSelect {
@@ -77,5 +77,24 @@ body {
     color: #777;
     padding: 30px;
 }
+
+/*Created class in ads/index.jsp and used flex to align them and space them evenly*/
+.align-forms {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/*changed the height of the select by category box*/
+select {
+    height: 34px;
+}
+
+/*centered the button inside of the category list */
+#btn-position {
+    position: relative;
+    left: 13px;
+}
+
 
 
