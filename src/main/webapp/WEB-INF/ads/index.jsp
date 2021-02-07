@@ -62,7 +62,6 @@
         </c:forEach>
     </div>
 
-
     <div class="container">
         <%-- Created forms to search by the title or the desciprion --%>
         <form action="/ads/title" method="get">
@@ -83,22 +82,9 @@
 
     </div>
 
-<%--<script type="text/javascript" src="../" ></script>--%>
-<script>
-        "use strict";
 
-        var expanded = false;
-
-        function showCheckboxes() {
-            var checkboxes = document.getElementById("checkboxes");
-            if (!expanded) {
-                checkboxes.style.display = "block";
-                expanded = true;
-            } else {
-                checkboxes.style.display = "none";
-                expanded = false;
-            }
-        }
-</script>
+    <%--JavaScript--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+    <script type="text/javascript" src="../../js/ads-index.js" ></script>
 </body>
 </html>

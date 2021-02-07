@@ -1,16 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: elviravaladez
-  Date: 2/5/21
-  Time: 3:15 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
-</html>
+<!--jQuery-->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<%--Navbar JS--%>
+<script src="../../js/navbar.js"></script>

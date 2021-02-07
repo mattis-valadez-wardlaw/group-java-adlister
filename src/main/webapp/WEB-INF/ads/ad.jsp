@@ -16,5 +16,9 @@
         <p><c:out value="Description: ${ad.description}"/></p>
         <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title}>
     </div>
+
+
+    <%--JavaScript--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
