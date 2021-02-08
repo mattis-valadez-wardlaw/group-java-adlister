@@ -9,14 +9,14 @@
         <ul class="nav navbar-nav navbar-right">
             <c:choose>
                 <c:when test="${sessionScope.user == null}" >
-                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link sub-nav-link" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link sub-nav-link" href="/login">Login</a></li>
                 </c:when>
             </c:choose>
 
             <c:choose>
                 <c:when test="${sessionScope.user != null}" >
-                    <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link " href="/profile">Profile</a></li>
                     <li class="nav-item"><a class="nav-link" href="/ads">Ads</a></li>
                     <li class="nav-item"><a class="nav-link" href="/ads/create">Create Ad</a></li>
                     <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>

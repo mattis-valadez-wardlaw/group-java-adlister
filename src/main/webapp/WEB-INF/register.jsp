@@ -20,16 +20,16 @@
                 <div>
                     <input id="username" name="username" class="box-design" type="text" placeholder="U S E R N A M E" required>
                 </div>
-                <div>
 
+                <div>
                     <input id="email" name="email" class="box-design" type="text" placeholder="E M A I L" required>
                 </div>
-                <div>
 
+                <div>
                     <input id="password" name="password" class="box-design" type="password"placeholder="P A S S W O R D"required>
                 </div>
-                <div>
 
+                <div>
                     <input id="confirm_password" name="confirm_password" class="box-design" type="password"placeholder="C O N F I R M   P A S S W O R D"required>
                 </div>
                 <input type="submit" class="btn" value="S U B M I T">
