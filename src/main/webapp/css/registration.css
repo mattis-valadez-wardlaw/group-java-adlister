@@ -1,0 +1,74 @@
+.registration {
+    position: relative;
+    left: 15%;
+    bottom: 20%;
+    border: none;
+    height: 650px;
+    width: 800px;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 40px;
+    background-color: #90BE6D;
+    background-image: linear-gradient(45deg, rgba(30,30,30,.3) 50%, rgba(87, 117, 144, 9) 50%);
+    box-shadow: 20px 17px 14px 3px rgba(0,0,0,0.64);
+    opacity: 90%;
+}
+
+.box-design {
+    font-size: 20px;
+    text-align: center;
+    width: 650px;
+    height: 70px;
+    margin: 25px 25px;
+    border-radius: 40px;
+    border: none;
+
+}
+
+.btn {
+    position: relative;
+    width: 300px;
+    height: 70px;
+    margin: 20px 25px;
+    border-radius: 40px;
+    left: 175px;
+    background-color: #F3722C;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+
+h2 {
+    position: relative;
+    top: 15px;
+    text-align: center;
+    color: white;
+    letter-spacing: 7px;
+}
+
+body {
+    width: 100%;
+    height: auto;
+    background: url(/img/pexels-andrew-mcmurtrie-3973905.jpg) no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.error{
+    position: relative;
+    left: 35%;
+    text-align: center;
+    width: 30%;
+    height: 30px;
+    background-color: red;
+    display: none;
+    color: white ;
+    opacity: 85%;
+    padding: 0;
+    font-size: 20px;
+    border-radius: 10px;
+}

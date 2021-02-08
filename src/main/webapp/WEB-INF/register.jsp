@@ -4,42 +4,39 @@
     <jsp:include page="partials/head.jsp">
         <jsp:param name="title" value="Register For Our Site!" />
     </jsp:include>
+    <link href="../css/registration.css" rel="stylesheet" type="text/css">
 
-    <style>
-        .error{
-            text-align: center;
-            width: 100%;
-            background-color: red;
-            display: none
-
-        }
-    </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
+
 <body>
     <jsp:include page="partials/navbar.jsp" />
     <div class = error></div>
     <div class="container">
-        <h1>Please fill in your information.</h1>
-        <form action="/register" method="post">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input id="username" name="username" class="form-control" type="text" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" name="email" class="form-control" type="text" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" name="password" class="form-control" type="password" required>
-            </div>
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input id="confirm_password" name="confirm_password" class="form-control" type="password" required>
-            </div>
-            <input type="submit" class="btn btn-primary btn-block">
-        </form>
+
+        <div class="registration">
+            <h2>COMPLETE REGISTRATION</h2>
+            <form action="/register" method="post">
+                <div class="">
+
+                    <input id="username" name="username" class="box-design" type="text" placeholder="U S E R N A M E" required>
+                </div>
+                <div class="">
+
+                    <input id="email" name="email" class="box-design" type="text" placeholder="E M A I L" required>
+                </div>
+                <div class="">
+
+                    <input id="password" name="password" class="box-design" type="password"placeholder="P A S S W O R D"required>
+                </div>
+                <div class="">
+
+                    <input id="confirm_password" name="confirm_password" class="box-design" type="password"placeholder="C O N F I R M   U S E R N A M E"required>
+                </div>
+                <input type="submit" class="btn" value="S U B M I T">
+            </form>
+
+        </div>
     </div>
 
 
@@ -49,7 +46,7 @@
         $(document).ready(function(){
             $("#confirm_password").keyup(function() {
                 if ($("#password").val() !== $("#confirm_password").val()) {
-                    $(".error").text("Passwords do not match").fadeIn("slow");
+                    $(".error").text("PASSWORDS DON'T MATCH").fadeIn("slow");
 
                 } else {
                     $(".error").fadeOut("slow");
