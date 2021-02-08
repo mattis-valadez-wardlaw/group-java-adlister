@@ -16,10 +16,10 @@ import java.io.IOException;
 public class AdDeleteServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //Why grab a query string and substring?
         String query = request.getQueryString();
         Long id = Long.valueOf(query.substring(3));
         DaoFactory.getAdsDao().delete(id);
+
         response.sendRedirect("/profile");
     }
 

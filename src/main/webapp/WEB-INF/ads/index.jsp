@@ -6,32 +6,38 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
-    <link rel="stylesheet" type="text/css" href="../css/ads-index.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/ads-index.css" />
 
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">R E S O U R C E S</h1>
+            <p class="text-center">Here are all the resources. Dive right in! 😊</p>
+        </div>
+    </div>
 
     <div class="container">
-        <h1>Here are all the resources! Dive right in! 😊</h1>
-
         <div class="align-forms">
 
+            <%--Search by Title Form--%>
             <form action="/ads/title" method="get">
                 <div class="form-group">
-                    <input id="title" name="title" type="text" placeholder="Search By Description">
+                    <input id="title" name="title" type="text" placeholder="Search By Title">
                     <input type="submit">
                 </div>
             </form>
 
+            <%--Search by Description Form--%>
             <form action="/ads/description" method="get">
                 <div class="form-group">
-                    <input id="description" name="description" type="text" placeholder="Search By Title">
+                    <input id="description" name="description" type="text" placeholder="Search By Description">
                     <input type="submit">
                 </div>
-
             </form>
 
+            <%--Search by Categories Form with Checkboxes--%>
             <form action="/ads/categories" method="get">
                 <div class="multiselect">
                     <div class="selectBox" onclick="showCheckboxes()">
@@ -49,46 +55,41 @@
                     </div>
                 </div>
             </form>
-
         </div>
 
         <%--Display Ads--%>
         <c:forEach var="ad" items="${ads}">
-            <div class="card">
-                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title}>
-                <div class="container">
-                    <h4><c:out value="${ad.title}"/></h4>
-                    <p><c:out value="${ad.description}"/></p>
-                    <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
-                    <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
-                </div>
+            <div class="card ad-card col-md-6">
+                <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                <p><c:out value="${ad.description}"/></p>
+                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
             </div>
         </c:forEach>
 
+        <%--Display Ads by Title--%>
         <c:forEach var="ad" items="${title}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+            <div class="card ad-card col-md-6">
+                <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                <p><c:out value="${ad.description}"/></p>
+                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
             </div>
         </c:forEach>
 
+        <%--Display Ads by Description--%>
         <c:forEach var="ad" items="${description}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+            <div class="card ad-card col-md-6">
+                <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                <p><c:out value="${ad.description}"/></p>
+                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
             </div>
         </c:forEach>
     </div>
-
-    <div class="container">
-        <%-- Created forms to search by the title or the desciprion --%>
-        <form action="/ads/title" method="get">
-            <div class="form-group">
-                <label for="title">Search by Title</label>
-                <input id="title" name="title" class="form-control" type="text">
-            </div>
-            <input type="submit" class="btn btn-primary btn-block">
-        </form>
 
 
     <%--JavaScript--%>

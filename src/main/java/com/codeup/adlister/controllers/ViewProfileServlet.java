@@ -14,17 +14,16 @@ import java.io.IOException;
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") == null) {
-            //////////////////////
-            //intended redirect//
-            /////////////////////
+            //intended redirect
             request.getSession().setAttribute("last-page", "/profile");
             response.sendRedirect("/login");
             return;
         }
 
-
         //appends the list of ads for the individual user to their profile
         request.setAttribute("ads", DaoFactory.getAdsDao().userAds((User)request.getSession().getAttribute("user")));
+        request.setAttribute("categories",DaoFactory.getCategoriesDao().all());
+        request.setAttribute("categoriesDao", DaoFactory.getCategoriesDao());
 
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
