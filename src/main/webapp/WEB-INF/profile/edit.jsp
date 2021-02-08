@@ -10,31 +10,33 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Edit Profile" />
+        <jsp:param name="title" value="Edit Profile"/>
     </jsp:include>
+    <link href="/css/profile-edit.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div class="container">
-    <h1>Please update your information.</h1>
-    <form action="/profile/edit" method="post">
-        <div class="form-group">
-            <label for="username">Current Username: ${sessionScope.user.username} </label>
-            <input id="username" name="username" class="form-control" type="text" required>
-        </div>
-
-        <div class="form-group">
-            <label for="email">Current Email: ${sessionScope.user.email}</label>
-            <input id="email" name="email" class="form-control" type="text" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" name="password" class="form-control" type="password" required>
-        </div>
-        <input id="submit-btn" type="submit" class="btn btn-block btn-primary">
-        <input id="id" type="hidden" name="id" value="${sessionScope.user.id}">
-    </form>
+    <div class="edit-profile">
+        <h1>Please update your information.</h1>
+        <form action="/profile/edit" method="post">
+            <div>
+                <input id="username" name="username" class="create-box" type="text" placeholder="U S E R N A M E"
+                       required>
+            </div>
+            <div>
+                <input id="email" name="email" class="create-box" type="text" placeholder="E M A I L" required>
+            </div>
+            <div>
+                <input id="passwoord" name="password" class="create-box" type="text" placeholder="P A S S W O R D"
+                       required>
+            </div>
+            <input id="id" type="hidden" name="id" value="${sessionScope.user.id}">
+            <input type="submit" class="btn">
+        </form>
+    </div>
 </div>
 
-
+<jsp:include page="/WEB-INF/partials/footer.jsp" />
 </body>
 </html>
