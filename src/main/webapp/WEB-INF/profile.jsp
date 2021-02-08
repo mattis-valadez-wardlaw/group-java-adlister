@@ -7,6 +7,8 @@
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
     <link href="../css/ads-index.css" rel="stylesheet" type="text/css">
+    <%--Style Buttons--%>
+    <link href="../css/card-buttons.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -24,8 +26,8 @@
                         <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
                         <p><c:out value="${ad.description}"/></p>
                         <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
-                        <a class="btn btn-primary deletebtn" id="deletebtn" href="/ads/delete?id=${ad.id}">Delete</a>
-                        <a class="btn btn-primary editbtn" id="editbtn" href="/ads/edit?id=${ad.id}">Edit</a>
+                        <a class="btn delete-btn deletebtn" id="deletebtn" href="/ads/delete?id=${ad.id}">Delete</a>
+                        <a class="btn btn edit-btn editbtn" id="editbtn" href="/ads/edit?id=${ad.id}">Edit</a>
                     </div>
                 </c:forEach>
         </div>
