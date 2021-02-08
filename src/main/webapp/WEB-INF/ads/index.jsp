@@ -7,7 +7,8 @@
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
     <link rel="stylesheet" type="text/css" href="../../css/ads-index.css" />
-
+    <%--Style Buttons--%>
+    <link href="../../css/card-buttons.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
