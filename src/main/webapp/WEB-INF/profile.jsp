@@ -9,7 +9,7 @@
     <link href="../css/ads-index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+    <jsp:include page="/WEB-INF/partials/navbar-profile.jsp" />
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username.substring(0,1).toUpperCase()}${sessionScope.user.username.substring(1).toLowerCase()}!</h1>
