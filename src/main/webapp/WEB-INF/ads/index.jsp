@@ -66,6 +66,7 @@
                 <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
                 <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
             </div>
+
         </c:forEach>
 
         <%--Display Ads by Title--%>

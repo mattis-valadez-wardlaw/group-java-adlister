@@ -28,8 +28,7 @@ video {
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(45deg, rgba(155,190,109,.7) 50%, rgba(0,0,0,.9) 50%);
-    background-size: 3px 3px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3) 10%,rgba(0,0,0,0.6) 100%);
     z-index: 2;
 }
 

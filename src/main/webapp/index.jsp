@@ -11,7 +11,7 @@
     <div class="container">
         <jsp:include page="/WEB-INF/partials/landing-page-navbar.jsp" />
         <h1 id="heading">S O J U</h1>
-        <h4 id="sub-heading">You  Home  For  Social  Justice  Resources</h4>
+        <h4 id="sub-heading">Your  Home  For  Social  Justice  Resources</h4>
     </div>
 
     <div class="overlay"></div>
