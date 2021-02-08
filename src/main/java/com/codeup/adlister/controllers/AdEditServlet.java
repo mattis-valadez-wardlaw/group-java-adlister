@@ -33,6 +33,7 @@ public class AdEditServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
+        String image = request.getParameter("image");
         Long id = Long.parseLong(request.getParameter("id"));
         // validate input
         boolean inputHasErrors = title.isEmpty()
@@ -45,7 +46,7 @@ public class AdEditServlet extends HttpServlet {
 
         try {
             //constructor had wrong parameters
-            Ad ad = new Ad(id, title, description);
+            Ad ad = new Ad(id, title, description, image);
             //Create update method in DAO
             DaoFactory.getAdsDao().updateAd(ad);
             request.getSession().setAttribute("ad", ad);

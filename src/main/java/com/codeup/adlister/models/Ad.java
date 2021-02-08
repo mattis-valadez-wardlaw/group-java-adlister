@@ -7,19 +7,12 @@ public class Ad {
     private String title;
     private String description;
     private String username;
-    private String imageUrl;
 
-
+    //Swapped to public
+    public String imageUrl;
     ///////////////
     //MySQLAdsDao//
     ///////////////
-//    public Ad(long id, long userId, String title, String description) {
-//        this.id = id;
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//    }
-
     public Ad(long id, long userId, String title, String description, String imageUrl) {
         this.id = id;
         this.userId = userId;
@@ -27,39 +20,23 @@ public class Ad {
         this.description = description;
         this.imageUrl = imageUrl;
     }
-
-
     ///////////////////
     //CreateAdServlet//
     ///////////////////
-//    public Ad(long userId, String title, String description) {
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//    }
-
     public Ad(long userId, String title, String description, String imageUrl) {
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.imageUrl = imageUrl;
     }
-
-
-//    public Ad(long userId, String title, String description, String username) {
-//        this.userId = userId;
-//        this.title = title;
-//        this.description = description;
-//        this.username = username;
-//    }
-
     /////////////////
     //AdEditServlet//
     /////////////////
-    public Ad(Long id, String title, String description) {
+    public Ad(Long id, String title, String description, String imageURL) {
         this.id = id;
         this.title = title;
         this.description = description;
+        this.imageUrl = imageURL;
     }
 
 
