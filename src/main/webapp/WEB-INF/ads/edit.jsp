@@ -5,28 +5,32 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Edit Ad" />
     </jsp:include>
+    <link href="/css/edit.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
     <div class="container">
-        <h1>Edit Ad</h1>
-        <form action="/ads/edit" method="post">
+        <div class="new-ad">
+            <form action="/ads/edit" method="post">
 
-            <div class="form-group">
-                <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text" value="${ad.title}" required>
-            </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text" required>${ad.description}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="image">Image</label>
-                <textarea id="image" name="image" class="form-control" type="text" required>${ad.imageUrl}</textarea>
-            </div>
-            <input type="hidden" name="id" value="${ad.id}">
-            <input type="submit" class="btn btn-block btn-primary">
-        </form>
+                <h1>Edit Ad</h1>
+
+                <div>
+                    <textarea id="title" name="title" class="create-box" type="text" placeholder="T I T L E" value="${ad.title}" required></textarea>
+                </div>
+                <div>
+                    <textarea id="description" name="description" class="create-box" type="text" placeholder="D E S C R I P T I O N" value="${ad.description}" required></textarea>
+                </div>
+                <div>
+                    <textarea id="image" name="image" class="create-box" type="text" placeholder="I M A G E - A D D R E S S" value="${ad.imageUrl}" required></textarea>
+                </div>
+
+                <input type="hidden" name="id" value="${ad.id}">
+                <input type="submit" class="btn">
+            </form>
+        </div>
+
+
     </div>
 
     <%--JavaScript--%>
