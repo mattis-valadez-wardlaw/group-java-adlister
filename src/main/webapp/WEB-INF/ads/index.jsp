@@ -25,24 +25,24 @@
             <%--Search by Title Form--%>
             <form action="/ads/title" method="get">
                 <div class="form-group">
-                    <input id="title" name="title" type="text" placeholder="Search By Title">
-                    <input type="submit">
+                    <input class="search-input-styling" id="title" name="title" type="text" placeholder="Search By Title">
+                    <input type="submit" class="search-btn">
                 </div>
             </form>
 
             <%--Search by Description Form--%>
             <form action="/ads/description" method="get">
                 <div class="form-group">
-                    <input id="description" name="description" type="text" placeholder="Search By Description">
-                    <input type="submit">
+                    <input class="search-input-styling" id="description" name="description" type="text" placeholder="Search By Description">
+                    <input type="submit" class="search-btn">
                 </div>
             </form>
 
             <%--Search by Categories Form with Checkboxes--%>
             <form action="/ads/categories" method="get">
                 <div class="multiselect">
-                    <div class="selectBox" onclick="showCheckboxes()">
-                        <select>
+                    <div class="select-box" onclick="showCheckboxes()">
+                        <select class="search-input-styling">
                             <option>Search By Category</option>
                         </select>
                         <div class="overSelect"></div>
@@ -52,45 +52,47 @@
                             <label for="category-${category.getId()}">
                                 <input type="checkbox" id="category-${category.getId()}" name="categories" value="${category.getId()}"/>${category.getName()}</label>
                         </c:forEach>
-                        <input type="submit" value="Search By Categories" id="btn-position" />
+                        <input class="search-btn search-categories-btn" type="submit" value="Search By Categories" id="btn-position" />
                     </div>
                 </div>
             </form>
         </div>
 
-        <%--Display Ads--%>
-        <c:forEach var="ad" items="${ads}">
-            <div class="card ad-card col-md-6">
-                <h3><strong><c:out value="${ad.title}"/></strong></h3>
-                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
-                <p><c:out value="${ad.description}"/></p>
-                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
-                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
-            </div>
+        <div class="card-container-div ad-cards-container">
+            <%--Display Ads--%>
+            <c:forEach var="ad" items="${ads}">
+                <div class="card ad-card col-md-6">
+                    <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                    <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                    <p><c:out value="${ad.description}"/></p>
+                    <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                    <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
+                </div>
+            </c:forEach>
 
-        </c:forEach>
+            <%--Display Ads by Title--%>
+            <c:forEach var="ad" items="${title}">
+                <div class="card ad-card col-md-6">
+                    <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                    <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                    <p><c:out value="${ad.description}"/></p>
+                    <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                    <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
+                </div>
+            </c:forEach>
 
-        <%--Display Ads by Title--%>
-        <c:forEach var="ad" items="${title}">
-            <div class="card ad-card col-md-6">
-                <h3><strong><c:out value="${ad.title}"/></strong></h3>
-                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
-                <p><c:out value="${ad.description}"/></p>
-                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
-                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
-            </div>
-        </c:forEach>
+            <%--Display Ads by Description--%>
+            <c:forEach var="ad" items="${description}">
+                <div class="card ad-card col-md-6">
+                    <h3><strong><c:out value="${ad.title}"/></strong></h3>
+                    <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
+                    <p><c:out value="${ad.description}"/></p>
+                    <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+                    <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
+                </div>
+            </c:forEach>
+        </div>
 
-        <%--Display Ads by Description--%>
-        <c:forEach var="ad" items="${description}">
-            <div class="card ad-card col-md-6">
-                <h3><strong><c:out value="${ad.title}"/></strong></h3>
-                <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="175" height="200">
-                <p><c:out value="${ad.description}"/></p>
-                <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
-                <a href="/ads/ad?id=${ad.id}" class="btn btn-primary">View Ad</a>
-            </div>
-        </c:forEach>
     </div>
 
 
