@@ -30,7 +30,7 @@
                 </div>
                 <div>
 
-                    <input id="confirm_password" name="confirm_password" class="box-design" type="password"placeholder="C O N F I R M   U S E R N A M E"required>
+                    <input id="confirm_password" name="confirm_password" class="box-design" type="password"placeholder="C O N F I R M   P A S S W O R D"required>
                 </div>
                 <input type="submit" class="btn" value="S U B M I T">
             </form>

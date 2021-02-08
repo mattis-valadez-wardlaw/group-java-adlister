@@ -18,13 +18,13 @@
     <h1>Please update your information.</h1>
     <form action="/profile/edit" method="post">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input id="username" name="username" class="form-control" type="text" value="${sessionScope.user.username}" required>
+            <label for="username">Current Username: ${sessionScope.user.username} </label>
+            <input id="username" name="username" class="form-control" type="text" required>
         </div>
 
         <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email" name="email" class="form-control" type="text" value="${sessionScope.user.email}" required>
+            <label for="email">Current Email: ${sessionScope.user.email}</label>
+            <input id="email" name="email" class="form-control" type="text" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
