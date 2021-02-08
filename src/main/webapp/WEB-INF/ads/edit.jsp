@@ -20,6 +20,10 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text" required>${ad.description}</textarea>
             </div>
+            <div class="form-group">
+                <label for="image">Image</label>
+                <textarea id="image" name="image" class="form-control" type="text" required>${ad.imageUrl}</textarea>
+            </div>
             <input type="hidden" name="id" value="${ad.id}">
             <input type="submit" class="btn btn-block btn-primary">
         </form>

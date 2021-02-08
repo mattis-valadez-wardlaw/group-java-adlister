@@ -147,16 +147,16 @@ public class MySQLAdsDao implements Ads {
 
     }
 
-
     @Override
     public Long updateAd(Ad ad) {
-        String query = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
+        String query = "UPDATE ads SET title = ?, description = ?, image_url = ? WHERE id = ?";
         try {
             PreparedStatement stmt = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 
             stmt.setString(1, ad.getTitle());
             stmt.setString(2, ad.getDescription());
-            stmt.setLong(3, ad.getId());
+            stmt.setString(3, ad.getImageUrl());
+            stmt.setLong(4, ad.getId());
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -166,6 +166,7 @@ public class MySQLAdsDao implements Ads {
         }
         return null;
     }
+
   
   @Override
     public Long linkAdToCategory(long adId, long categoryId) {
