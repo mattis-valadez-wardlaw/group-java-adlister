@@ -25,31 +25,16 @@ public class AdEditServlet extends HttpServlet {
             request.getSession().setAttribute("ad", currentAd);
 
             request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
-
+        } catch (Exception e) {
+            response.sendRedirect("/redirect");
         }
-
-            catch (Exception e) {
-                response.sendRedirect("/redirect");
-            }
-//        String query = request.getQueryString();
-//        Long id = Long.valueOf(query.substring(3));
-//        //Use Dao to get current ad
-//
-//        Ad currentAd = DaoFactory.getAdsDao().singleAd(id);
-//
-//        //Set this sessions attribute to current ad
-//        request.getSession().setAttribute("ad", currentAd);
-//
-//        request.getRequestDispatcher("/WEB-INF/ads/edit.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String title = request.getParameter("title");
         String description = request.getParameter("description");
         Long id = Long.parseLong(request.getParameter("id"));
-        ////////////////////
-        // validate input //
-        ///////////////////
+        // validate input
         boolean inputHasErrors = title.isEmpty()
                 || description.isEmpty();
 
@@ -57,7 +42,6 @@ public class AdEditServlet extends HttpServlet {
             response.sendRedirect("/ads/edit");
             return;
         }
-
 
         try {
             //constructor had wrong parameters

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
@@ -9,12 +10,12 @@
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
     <div class="container">
-        <h1><c:out value="${ad.title}"/></h1>
-        <h2><c:out value="Posted by: ${usersDao.findById(ad.userId).getUsername()}"/></h2>
+        <h3><strong><c:out value="${ad.title}"/></strong></h3>
+        <h2><c:out value="Posted by: ${usersDao.findById(ad.userId).getUsername().substring(0, 1).toUpperCase()}${usersDao.findById(ad.userId).getUsername().substring(1).toLowerCase()}"/></h2>
         <p><c:out value="Description: ${ad.description}"/></p>
-        <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title}>
+        <p><strong>Categories:</strong> <c:out value="${fn:join(categoriesDao.getCategoriesLinkedWithAd(ad.id).toArray(), ',')}"/></p>
+        <img src="<c:out value="${ad.imageUrl}"/>" alt=${ad.title} width="300" height="350">
     </div>
 
 

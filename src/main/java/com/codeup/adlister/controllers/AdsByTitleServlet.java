@@ -15,6 +15,9 @@ public class AdsByTitleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String adTitle = request.getParameter("title");
         request.setAttribute("title", DaoFactory.getAdsDao().getAdsByTitle(adTitle));
+        request.setAttribute("categories",DaoFactory.getCategoriesDao().all());
+        request.setAttribute("categoriesDao", DaoFactory.getCategoriesDao());
+
         request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
 
     }

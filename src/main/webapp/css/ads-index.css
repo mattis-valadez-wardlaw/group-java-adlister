@@ -8,7 +8,6 @@
 
 .selectBox select {
     width: 100%;
-    /*font-weight: bold;*/
 }
 
 .overSelect {
@@ -36,7 +35,9 @@
  .card {
      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
      transition: 0.3s;
-     width: 40%;
+     /*width: 40%;*/
+     width: 30%;
+     border-radius: 20px;
  }
 
 .card:hover {
@@ -48,18 +49,20 @@
 }
 
 .ad-card{
-    width: 400px;
-    height: 650px;
+    width: 300px;
+    height: 575px;
     align-content: center;
     text-align: center;
     margin:25px;
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
+    border-radius: 20px;
 }
 
 img {
     margin: auto;
+    padding-bottom: 12px;
 }
 
 .card-container {
@@ -75,8 +78,6 @@ body {
     font-weight: 400;
     font-size: 16px;
     line-height: 1.7;
-    color: #777;
-    /*padding: 30px;*/
 }
 
 /*Created class in ads/index.jsp and used flex to align them and space them evenly*/
@@ -95,4 +96,12 @@ select {
 #btn-position {
     position: relative;
     left: 13px;
+}
+
+.jumbotron {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.6) 100%), url("../img/rainbow-jumbotron.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 20vh;
+    color: white;
 }
