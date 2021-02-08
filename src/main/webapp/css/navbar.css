@@ -1,5 +1,5 @@
 .navbar {
-    background: transparent;
+    background: #F94144;
     border: none;
     z-index: 1;
     position: relative;
@@ -9,10 +9,31 @@
     right: 0;
     text-align: center;
 }
+.nav-link {
+    color: white !important;
+    font-size: 16px !important;
+}
+
+.navbar-brand-link {
+    color: white !important;
+    font-size: 30px !important;
+}
+
+.black-font {
+    color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #F94144;
+}
 
 a.nav-link::before {
     transform: scaleX(0);
     transform-origin: bottom right;
+}
+
+a.nav-link:hover {
+    color: black !important;
 }
 
 a.nav-link:hover::before {
@@ -26,7 +47,14 @@ a.nav-link::before {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
     inset: 0 0 0 0;
-    background: rgb(255,192,203);
+    background: #F9C74F;
     z-index: -1;
     transition: transform .3s ease;
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media screen and (min-width:1200px) {
+    .container-fluid {
+        max-width: 50%;
+    }
 }

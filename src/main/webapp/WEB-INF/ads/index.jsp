@@ -80,43 +80,19 @@
         </c:forEach>
     </div>
 
+    <div class="container">
+        <%-- Created forms to search by the title or the desciprion --%>
+        <form action="/ads/title" method="get">
+            <div class="form-group">
+                <label for="title">Search by Title</label>
+                <input id="title" name="title" class="form-control" type="text">
+            </div>
+            <input type="submit" class="btn btn-primary btn-block">
+        </form>
 
-<%--    <div class="container">--%>
-<%--        &lt;%&ndash; Created forms to search by the title or the desciprion &ndash;%&gt;--%>
-<%--        <form action="/ads/title" method="get">--%>
-<%--            <div class="form-group">--%>
-<%--                <label for="title">Search by Title</label>--%>
-<%--                <input id="title" name="title" type="text">--%>
-<%--            </div>--%>
-<%--            <input type="submit">--%>
-<%--        </form>--%>
 
-<%--        <form action="/ads/description" method="get">--%>
-<%--            <div class="form-group">--%>
-<%--                <label for="description">Search by Description</label>--%>
-<%--                <input id="description" name="description" type="text">--%>
-<%--            </div>--%>
-<%--            <input type="submit">--%>
-<%--        </form>--%>
-
-<%--    </div>--%>
-
-<%--<script type="text/javascript" src="../" ></script>--%>
-<script>
-        "use strict";
-
-        var expanded = false;
-
-        function showCheckboxes() {
-            var checkboxes = document.getElementById("checkboxes");
-            if (!expanded) {
-                checkboxes.style.display = "block";
-                expanded = true;
-            } else {
-                checkboxes.style.display = "none";
-                expanded = false;
-            }
-        }
-</script>
+    <%--JavaScript--%>
+    <jsp:include page="/WEB-INF/partials/footer.jsp" />
+    <script type="text/javascript" src="../../js/ads-index.js" ></script>
 </body>
 </html>
