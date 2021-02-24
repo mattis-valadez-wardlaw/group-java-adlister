@@ -50,11 +50,11 @@ S O J U is a full-stack web application for teachers, where teachers can view an
 ## Project Planning
 For this project, we utilized a Kanban Board to stay organized. We created a list of tasks and organized them into multiple columns. Because of this, we were easily able to assign ownership and track progress through various phases of development. Our go-to project planning resource was Trello.
 
-Check out our team Trello Board [HERE](https://trello.com/b/oPYStSsT/s-o-j-u-board).
+* Check out our team Trello Board [HERE](https://trello.com/b/oPYStSsT/s-o-j-u-board).
+* Check out our database diagram below.
 
-<p align="center">
-    <img src="src/main/webapp/img/SOJU-Database-Design.png.png" alt="S O J U design">
-</p>
+
+![Picture of database diagram](src/main/webapp/img/SOJU-Database-Design.png)
 
 [Back To The Top](#s-o-j-u)
 
