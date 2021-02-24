@@ -52,6 +52,10 @@ For this project, we utilized a Kanban Board to stay organized. We created a lis
 
 Check out our team Trello Board [HERE](https://trello.com/b/oPYStSsT/s-o-j-u-board).
 
+<p align="center">
+    <img src="src/main/webapp/img/SOJU-Database-Design.png.png" alt="S O J U design">
+</p>
+
 [Back To The Top](#s-o-j-u)
 
 
