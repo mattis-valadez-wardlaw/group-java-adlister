@@ -25,7 +25,7 @@ S O J U is a full-stack web application for teachers, where teachers can view an
 * jQuery
 * Bootstrap
 
-[Back To The Top](#S O J U)
+[Back To The Top](#s-o-j-u)
 
 ---
 
@@ -43,7 +43,7 @@ S O J U is a full-stack web application for teachers, where teachers can view an
 * Search through posts by description
 * Logout of the app to be redirected to the landing page
 
-[Back To The Top](#S O J U)
+[Back To The Top](#s-o-j-u)
 
 ---
 
@@ -52,7 +52,7 @@ For this project, we utilized a Kanban Board to stay organized. We created a lis
 
 Check out our team Trello Board [HERE](https://trello.com/b/oPYStSsT/s-o-j-u-board).
 
-[Back To The Top](#S O J U)
+[Back To The Top](#s-o-j-u)
 
 
 ---
@@ -64,4 +64,4 @@ Check out our team Trello Board [HERE](https://trello.com/b/oPYStSsT/s-o-j-u-boa
 
 [Elvira Valadez](https://github.com/elviravaladez)
 
-[Back To The Top](#S O J U)
+[Back To The Top](#s-o-j-u)
